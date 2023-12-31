@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Something went wrong..</title>
+    <link rel="shortcut icon" th:href="@{/assets/white_logo.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/error/unexpected.css}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Unexpected error found</h2>
+
+        <!--/*@thymesVar id="code" type="java.lang.Integer"*/-->
+        <h3 th:text="${code}"></h3>
+        <div class="message">
+            <!--/*@thymesVar id="message" type="java.lang.String"*/-->
+            <h5 th:text="${message}"></h5>
+        </div>
+        <div class="contact">
+            <a href=""><i class="fab fa-discord"></i></a>
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fas fa-home"></i></a>
+        </div>
+    </div>
+</body>
+</html>
