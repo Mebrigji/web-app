@@ -1,7 +1,7 @@
 body {
     background: rgb(0 0 0 / 80%) no-repeat fixed center;
     background-size: cover;
-    font-family: Arial, serif;
+    font-family: 'Montserrat', sans-serif;
     max-width: 100%;
     overflow: auto;
 }
@@ -278,4 +278,30 @@ footer h5 a:hover {
 .container .info .item a:hover {
     color: #5baefa;
     box-shadow: 0 0 10px #5baefa;
+}
+
+.container .gallery {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 2rem -1.5rem 1.5rem -2rem;
+    padding: 0.5rem 0 0.5rem 0;
+
+    color: white;
+    text-align: center;
+
+    background: rgb(0 0 0 / 50%);
+    box-shadow: 0 0 10px rgb(0 0 0 / 60%);
+}
+
+.container .gallery .images-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container .gallery .images-container .main{
+
 }

