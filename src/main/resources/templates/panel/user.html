@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WywrotkaMC - Panel Sterowania</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" th:href="@{/assets/panel/logo.png}" type="image/png">
+
+    <meta property="og:image" content="https://asterius.pl/assets/panel/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta property="og:site_name" content="WywrotkaMC.pl">
+    <meta property="og:title" content="WywrotkaMC.pl">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wywrotkamc.pl/">
+    <meta name="theme-color" content="#FFF01F">
+    <meta property="og:description" content="Panel administracyjny serwera WywrotkaMC.PL">
+
+    <link rel="stylesheet" th:href="@{/panel/user.css}">
+    <link rel="stylesheet" th:href="@{/panel/main.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+<body>
+<header>
+
+    <button class="on-phone" onclick="toggleNavigation()"><i class="fas fa-list"></i></button>
+    <img th:src="@{/assets/panel/logo.png}" alt="logo" width="128px">
+    <a href="../sign-out" class="sign-out"><i class="fas fa-sign-out-alt"></i></a>
+    <button class="announcement"><i th:class="${bell}"></i></button>
+
+    <nav>
+        <a href="../panel"><i class="fas fa-home"></i> Home</a>
+        <a href="/user" class="active"><i class="fas fa-user-circle"></i> User</a>
+        <a href="/members"><i class="fas fa-users"></i> Members</a>
+        <a href="/calendar"><i class="fas fa-calendar-check"></i> Calendar</a>
+        <a href="/announcements"><i class="fas fa-bullhorn"></i> Announcements</a>
+        <a href="/changes"><i class="fas fa-wrench"></i> Changes</a>
+
+        <div class="account responsive">
+            <!--/*@thymesVar id="account" type="java.lang.Object"*/-->
+            <!--/*@thymesVar id="avatar" type="java.lang.String"*/-->
+            <img th:src="${account.avatar}" alt="avatar" width="64px" style="border-radius: 16px">
+
+            <!--/*@thymesVar id="name" type="java.lang.String"*/-->
+            <h5 th:text="${account.nickName}"></h5>
+        </div>
+    </nav>
+</header>
+
+<div class="container active">
+    <div class="history">
+
+    </div>
+    <div class="table">
+        <div class="item">
+            <div class="head">
+                <i class="fas fa-plus-circle"></i>
+                <h5 style>Plusy</h5>
+            </div>
+            <div class="body">
+                <h5>10</h5>
+                <div class="actions">
+                    <button><i class="fas fa-ellipsis-h"></i></button>
+                    <button><i class="fas fa-clipboard"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="head">
+                <i class="fas fa-minus-circle"></i>
+                <h5 style>Minusy</h5>
+            </div>
+            <div class="body">
+                <h5>0</h5>
+                <div class="actions">
+                    <button><i class="fas fa-ellipsis-h"></i></button>
+                    <button><i class="fas fa-clipboard"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="head">
+                <i class="fas fa-award"></i>
+                <h5 style>Punkty</h5>
+            </div>
+            <div class="body">
+                <h5>0</h5>
+                <div class="actions">
+                    <button><i class="fas fa-ellipsis-h"></i></button>
+                    <button><i class="fas fa-clipboard"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="head">
+                <i class="fas fa-volume-mute"></i>
+                <h5 style>Wyciszenia</h5>
+            </div>
+            <div class="body">
+                <h5>0</h5>
+                <div class="actions">
+                    <button><i class="fas fa-ellipsis-h"></i></button>
+                    <button><i class="fas fa-clipboard"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="head">
+                <i class="fas fa-lock"></i>
+                <h5 style>Nadane blokady</h5>
+            </div>
+            <div class="body">
+                <h5>0</h5>
+                <div class="actions">
+                    <button><i class="fas fa-ellipsis-h"></i></button>
+                    <button><i class="fas fa-clipboard"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="active">
+    <h5 style="margin: -0.5rem 0.5rem; padding: 1.5rem 0 0 0">Copyright 2024 by "KONRAD ZAREMBA ARCHITEKTURA". All Rights Reserved.</h5>
+    <h5 style="margin: 0.5rem; padding: 0.25rem 0 0 0">Made by: <a href="https://github.com/Mebrigji" style="text-decoration: none; color: #F5AC2A">Mebrigji <i class="fab fa-github"></i></a></h5>
+</footer>
+
+<script>
+
+    function toggleNavigation() {
+        const nav = document.querySelector("nav");
+        nav.classList.toggle("active");
+
+        const container = document.querySelector(".container");
+        container.classList.toggle("active");
+    }
+
+</script>
+</body>
+</html>

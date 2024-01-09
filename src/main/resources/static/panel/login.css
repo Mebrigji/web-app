@@ -1,0 +1,115 @@
+body {
+  background: url("/assets/panel/background.png") no-repeat fixed center;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+img.logo{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 2%;
+}
+
+.container {
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background: rgb(0 0 0 / 70%);
+  box-shadow: 0 0 10px rgb(0 0 0 / 70%);
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  padding: 1.5rem;
+
+  border-radius: 0.5rem;
+
+}
+
+.container h2{
+  color: #F5AC2A;
+  text-align: center;
+  padding: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem 0;
+}
+
+.container .login-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.container nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  border-right: 1px solid #F5AC2A;
+  margin: 0 1rem 0;
+  padding: 0 1.5rem 0 0;
+}
+
+.container nav a{
+  text-decoration: none;
+  font-size: x-large;
+  margin: 0.5rem 0;
+  color: white;
+
+  transition: 400ms;
+}
+
+.container nav a:hover{
+  color: #F5AC2A;
+}
+
+.container .login-container input{
+  background: transparent;
+  border: 1px solid #F5AC2A;
+  color: white;
+  padding: 4px;
+}
+
+.container .login-container label{
+  padding: 0.5rem 0 0.25rem 0;
+}
+
+.container .login-container input::placeholder{
+  color: white;
+}
+
+.container .login-container input[type=submit]{
+
+  position: relative;
+
+  margin: 1rem 0;
+  padding: 0.35rem;
+
+  border: #F5AC2A;
+  box-shadow: 0 0 4px #F5AC2A;
+  background: rgb(245, 172, 42);
+  color: #492f00;
+
+  width: 6rem;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.container .login-container .button{
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+@media screen and (max-width: 800px) {
+  .container .login-container input[type=submit]{
+    width: auto;
+  }
+}

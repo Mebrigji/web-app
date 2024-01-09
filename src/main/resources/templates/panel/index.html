@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Panel sterowania</title>
+    <title>WywrotkaMC - Panel Sterowania</title>
 
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,10 +14,15 @@
     <meta property="og:title" content="WywrotkaMC.pl">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wywrotkamc.pl/">
+
+    <meta property="og:image" content="https://asterius.pl/assets/panel/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+
     <meta name="theme-color" content="#FFF01F">
     <meta property="og:description" content="Panel administracyjny serwera WywrotkaMC.PL">
 
     <link rel="stylesheet" th:href="@{/panel/index.css}">
+    <link rel="stylesheet" th:href="@{/panel/main.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 </head>
@@ -25,6 +30,7 @@
     <header>
         <button class="on-phone" onclick="toggleNavigation()"><i class="fas fa-list"></i></button>
         <img th:src="@{/assets/panel/logo.png}" alt="logo" width="128px">
+        <a href="../sign-out" class="sign-out"><i class="fas fa-sign-out-alt"></i></a>
         <button class="announcement"><i th:class="${bell}"></i></button>
         <nav>
             <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
@@ -53,15 +59,17 @@
                 <div class="server">
                     <h4>Survival + Działki</h4>
                     <div>
-                        <img th:src="@{/assets/panel/servers/survival.png}" alt="icon" width="128px">
-                        <h5>Players: <i class="fas fa-users"></i> 50</h5>
+                        <img th:src="@{/assets/panel/servers/survival.png}" alt="icon" width="128px" height="128px">
+                        <h5>Gracze: <i class="fas fa-users"></i> 50</h5>
+                        <a href="../itemshop?serverId=0"><i class="fas fa-gem"></i> ɪᴛᴇᴍsʜᴏᴘ</a>
                     </div>
                 </div>
                 <div class="server">
                     <h4>SkyBlock</h4>
                     <div>
-                        <img th:src="@{/assets/panel/servers/skyblock.png}" alt="icon" width="128px">
-                        <h5>Players: <i class="fas fa-users"></i> 133</h5>
+                        <img th:src="@{/assets/panel/servers/skyblock.png}" alt="icon" width="128px" height="128px">
+                        <h5>Gracze: <i class="fas fa-users"></i> 133</h5>
+                        <a href="../itemshop?serverId=1"><i class="fas fa-gem"></i> ɪᴛᴇᴍsʜᴏᴘ</a>
                     </div>
                 </div>
             </div>

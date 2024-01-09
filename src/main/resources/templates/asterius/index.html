@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Primary Meta Tags -->
+    <title>Asterius.PL - Twój serwer MineCraft</title>
+    <meta name="title" content="Asterius.PL - Twój serwer MineCraft" />
+    <meta name="description" content="Jesteśmy sprawnie rozwijającym się serwerem Minecraft, który powstał dnia 07.01.2024. Chcemy abyś pomógł(-a) nam efektywnie rozwijać serwer w tym celu poszukujemy jak największego grona graczy gotowego do pomocy, a jednocześnie do tworzenia naszego potężnego community!" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dołącz już dziś do naszego community!">
+    <meta property="og:url" content="https://asterius.pl/" />
+    <meta property="og:title" content="Asterius.PL - Twój serwer MineCraft" />
+    <meta property="og:description" content="Jesteśmy sprawnie rozwijającym się serwerem Minecraft, który jako projekt zaczął funkcjonować z dniem 07.01.2024. Chcemy abyś pomógł(-a) nam prężnie rozwijać serwer, w tym celu poszukujemy jak największego grona graczy gotowego do pomocy, a jednocześnie do tworzenia naszego potężnego community!" />
+    <meta property="og:image" content="https://asterius.pl/assets/asterius/logo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site_name" content="Dołącz już dziś do naszego community!">
+    <meta property="twitter:url" content="https://asterius.pl/" />
+    <meta property="twitter:title" content="Asterius.PL - Twój serwer MineCraft" />
+    <meta property="twitter:description" content="Jesteśmy sprawnie rozwijającym się serwerem Minecraft, który jako projekt zaczął funkcjonować z dniem 07.01.2024. Chcemy abyś pomógł(-a) nam prężnie rozwijać serwer, w tym celu poszukujemy jak największego grona graczy gotowego do pomocy, a jednocześnie do tworzenia naszego potężnego community!" />
+    <meta property="twitter:image" content="https://asterius.pl/assets/asterius/logo.png" />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <link rel="shortcut icon" th:href="@{/assets/asterius/logo.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/asterius/main.css}">
+    <link rel="stylesheet" th:href="@{/asterius/index.css}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (){
+            document.querySelectorAll("header, .container, footer").forEach(function (element) {
+                element.style.opacity = "1";
+                console.log(element + " enabled")
+            });
+            document.querySelector("img.logo-background").style.opacity = "5%";
+            document.querySelector(".loader").style.opacity = "0";
+        })
+    </script>
+</head>
+<body>
+
+    <div class="loader">
+        <h4>Trwa ładowanie strony..</h4>
+        <i class="animator fa fa-gear"></i>
+    </div>
+
+    <header>
+
+        <img class="logo" th:src="@{/assets/asterius/logo.png}" alt="logo" width="90px" height="90px">
+
+        <div th:if="${logged}" class="account">
+            <div style="margin: 0; display: flex; flex-direction: column; flex-wrap: wrap; justify-content: end; align-content: end; text-align: end">
+                <h4 style="margin: 0;">Zalogowano jako:</h4>
+                <h5 style="margin: 0;"><span style="color: red">ᴡᴌᴀśᴄɪᴄɪᴇʟ</span> Mebrigji</h5>
+                <a href="" style="margin: 4px 0;">wyloguj się</a>
+            </div>
+            <img style="margin: 0; padding: 0 1rem" src="https://mc-heads.net/avatar/Mebrigji" alt="avatar" width="64px" height="64px">
+        </div>
+
+        <div th:unless="${logged}" class="account" style="top: 30px; position: absolute;">
+            <a href="">Zaloguj się</a>
+        </div>
+
+        <nav>
+            <a href="" class="active"><i class="fas fa-home"></i> Strona Główna</a>
+            <a href=""><i class="fas fa-shopping-cart"></i> Sklep</a>
+            <a href=""><i class="fas fa-paperclip"></i> Regulamin</a>
+            <a href=""><i class="fas fa-th-list"></i> Tabela Liderów</a>
+            <a href=""><i class="fas fa-user-lock"></i> Bany</a>
+        </nav>
+    </header>
+    <img class="logo-background" th:src="@{/assets/asterius/logo.png}" alt="logo.png" width="30%" height="40%">
+    <div class="container">
+
+    </div>
+    <footer>
+        <h5>Copyright 2024 by Asterius.pl | All Rights Reserved.</h5>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,311 @@
+body{
+    background: url("/assets/panel/background.png") fixed center no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+header {
+    background: rgb(0 0 0 / 60%);
+    box-shadow: 0 0 8px rgb(0 0 0 / 60%);
+
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    left: 0;
+    top: 0;
+
+    z-index: 10;
+}
+
+header .on-phone{
+    position: absolute;
+    display: none;
+    background: transparent;
+    color: white;
+    left: 1rem;
+    top: 35px;
+    border: none;
+    font-size: x-large;
+    z-index: 20;
+}
+
+header .on-phone:hover{
+    color: #F5AC2A;
+}
+
+header nav{
+    position: absolute;
+    top: 40px;
+    margin: 0 1rem;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    margin: 8rem 1rem;
+    z-index: 0;
+    transition: 400ms;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+
+    height: 80px;
+    width: 100%;
+    left: 0;
+
+    z-index: 2;
+
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+    background: rgb(0 0 0 / 50%);
+    color: white;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notification{
+    position: fixed;
+    right: 1rem;
+    top: 8rem;
+    z-index: 20;
+    opacity: 0;
+    color: white;
+    transition: 400ms;
+}
+
+.notification.active{
+    opacity: 1;
+}
+
+.notification .item{
+    background: rgb(0 0 0 / 90%);
+    border-radius: 1rem;
+    border: 2px solid;
+    padding: 0.25rem 1rem;
+    margin: 0.25rem 0;
+}
+
+.notification .item.negative{
+    color: #e50000;
+}
+
+.notification .negative h3{
+    text-align: center;
+    margin: 0.25rem 0;
+    padding: 0.2rem 0;
+    color: #e50000;
+}
+
+.notification .negative h5{
+    border-top: 2px solid #e50000;
+    padding: 0.5rem 0 0 0;
+    margin: 0 0 0.5rem 0;
+    color: white;
+}
+
+.notification .item.positive{
+    color: #00e51f;
+}
+
+.notification .positive h3{
+    text-align: center;
+    margin: 0.25rem 0;
+    padding: 0.2rem 0;
+    color: #00bd00;
+}
+
+.notification .positive h5{
+    border-top: 2px solid #00bd00;
+    padding: 0.5rem 0 0 0;
+    margin: 0 0 0.5rem 0;
+    color: white;
+}
+
+.notification h3{
+    text-align: center;
+    margin: 0.25rem 0;
+    padding: 0.2rem 0;
+}
+
+.notification h5{
+    border-top: 2px solid;
+    padding: 0.5rem 0 0 0;
+    margin: 0 0 0.5rem 0;
+    color: white;
+}
+
+header nav .account{
+    position: absolute;
+    right: 2rem;
+    top: -15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: white;
+    padding: 2rem 1rem;
+}
+
+header .announcement{
+    z-index: 10;
+    position: absolute;
+    right: 8rem;
+    top: 35px;
+    background: transparent;
+    border: none;
+    font-size: x-large;
+    color: white;
+    transition: 400ms;
+}
+
+header .sign-out{
+    z-index: 10;
+    position: absolute;
+    right: 11rem;
+    top: 35px;
+    background: transparent;
+    border: none;
+    font-size: x-large;
+    color: white;
+    transition: 400ms;
+}
+
+header .sign-out:hover{
+    color: #F5AC2A;
+}
+
+@keyframes shake {
+
+    0%, 100% { transform: translateX(0); }
+    10%, 90% { transform: translateX(-5px); }
+    20%, 80% { transform: translateX(5px); }
+    30%, 70% { transform: translateX(-3px); }
+    40%, 60% { transform: translateX(3px); }
+    50% { transform: translateX(0); }
+}
+
+header .announcement:hover{
+    color: #F5AC2A;
+    animation: shake 3s infinite;
+}
+
+@media screen and (max-width: 1450px) {
+
+    header .sign-out{
+        right: 5rem;
+    }
+
+    header .announcement {
+        right: 2rem;
+    }
+
+    footer{
+        opacity: 0;
+    }
+
+    .container{
+        opacity: 0.1;
+    }
+
+    .container.active{
+        opacity: 1;
+    }
+
+    footer.active{
+        opacity: 1;
+    }
+
+    header img{
+        right: 10px;
+    }
+
+    header .on-phone{
+        display: block;
+    }
+
+    header nav{
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        left: -1rem;
+        top: 0;
+        height: 100%;
+        width: 160px;
+        opacity: 0;
+        background: rgb(0 0 0 / 60%);
+        padding: 0 1rem;
+        box-shadow: 0 0 10px rgb(0 0 0 / 60%);
+
+        transition: 400ms;
+    }
+
+    header nav.active{
+        opacity: 1;
+    }
+
+    header nav a{
+        display: none;
+        position: relative;
+        top: 6.5rem;
+        padding: 0.25rem 0;
+    }
+
+    header nav.active a{
+        display: block;
+    }
+
+    header nav .account.responsive{
+        left: 0;
+        bottom: 40px;
+        display: block;
+        top: auto;
+        right: auto;
+    }
+}
+
+
+header img{
+    position: absolute;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    transform: translate(-50%, 0);
+    top: -15px;
+}
+
+header nav a{
+    text-decoration: none;
+    color: white;
+    transition: 0.4s;
+    margin: 0 0.25rem;
+}
+
+header nav a.active{
+    color: #F5AC2A;
+}
+
+header nav a:hover {
+    color: #F5AC2A;
+}
+
+::-webkit-scrollbar{
+    width: 12px;
+}
+
+::-webkit-scrollbar-track{
+    border: none;
+    background: rgb(0 0 0 / 60%);
+}
+
+::-webkit-scrollbar-thumb{
+    background: #F5AC2A;
+}

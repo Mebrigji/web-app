@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WywrotkaMC - Logowanie do panelu</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" th:href="@{/assets/panel/logo.png}" type="image/png">
+
+    <meta property="og:image" content="https://asterius.pl/assets/panel/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta property="og:site_name" content="WywrotkaMC.pl">
+    <meta property="og:title" content="WywrotkaMC.pl">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wywrotkamc.pl/">
+    <meta name="theme-color" content="#FFF01F">
+    <meta property="og:description" content="Panel administracyjny serwera WywrotkaMC.PL">
+
+    <link rel="stylesheet" th:href="@{/panel/login.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href=""><i class="fab fa-discord"></i></a>
+            <a href=""><i class="fab fa-facebook"></i></a>
+        </nav>
+        <form action="../auth" class="login-container" method="post">
+            <h2>Logowanie do panelu</h2>
+            <label for="nickName">Login</label>
+            <input type="text" id="nickName" name="nickName" placeholder="Wpisz nick z gry.." required>
+            <label for="password">Hasło</label>
+            <input type="password" id="password" name="password" placeholder="Wpisz hasło do konta.." required>
+            <div class="button">
+                <input type="submit" value="ᴢᴀʟᴏɢᴜᴊ sɪᴇ">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

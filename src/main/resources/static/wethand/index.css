@@ -2,8 +2,6 @@ body {
     background: rgb(0 0 0 / 80%) no-repeat fixed center;
     background-size: cover;
     font-family: 'Montserrat', sans-serif;
-    max-width: 100%;
-    overflow: auto;
 }
 
 header {
@@ -137,18 +135,26 @@ header nav a:hover {
 }
 
 footer {
-    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
-    background: #191919;
-    color: white;
-    min-height: 80px;
-    padding: 0.5rem;
+    position: relative;
+    bottom: 0;
+
     margin: 0;
     width: 100%;
-    transform: translate(-8px, 0);
-    transition: 0.3s;
+
+    min-height: 80px;
+    left: 0;
+
+    z-index: 2;
+
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+    background: rgb(0 0 0 / 50%);
+    color: white;
+
+    text-align: center;
+
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
 }
 
 footer .icons {

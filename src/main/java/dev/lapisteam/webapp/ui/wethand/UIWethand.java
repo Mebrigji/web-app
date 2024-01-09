@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class UIRenderer {
+public class UIWethand {
 
-    @RequestMapping("")
+    @RequestMapping("wethand")
     public ModelAndView renderMain(){
         return new ModelAndView("wethand/index");
     }
