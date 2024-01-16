@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head style="scroll-behavior: smooth">
+    <meta charset="UTF-8">
+    <title>Asterius.PL - Twój Serwer Minecraft</title>
+    <link rel="shortcut icon" th:href="@{/assets/logo.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/index.css}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://unpkg.com/@popperjs/core@2" async></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".root").style.display = 'none';
+        });
+        window.addEventListener("load", ev => {
+            document.querySelector(".root").style.display = 'block';
+            const loader = document.querySelector(".loader");
+            document.querySelector(".loader .blur").classList.add('hide');
+        })
+    </script>
+</head>
+<body>
+    <div class="loader">
+        <img class="blur" th:src="@{/assets/logo.png}" alt="logo">
+    </div>
+    <div class="root">
+
+        <div class="wrapper">
+            <h1></h1>
+            <h4></h4>
+        </div>
+        <header>
+            <nav>
+                <a href=""><i class="fas fa-home"></i> Strona Główna</a>
+                <a href=""><i class="fas fa-medal"></i> Topki</a>
+                <a href=""><i class="fas fa-gavel"></i> Bany</a>
+                <a href=""><i class="fas fa-paperclip"></i> Regulamin</a>
+                <a href=""><i class="fas fa-clipboard-list"></i> Zmiany</a>
+                <a href="" class="shop"><i class="fas fa-shopping-cart"></i> Sklep</a>
+            </nav>
+            <div class="socials">
+                <div class="item" onclick="openUrl('https://discord.com/invite/cFFhtKYC')">
+                    <i class="fab fa-discord"></i>
+                    <h5>517 UŻYTKOWNIKÓW ONLINE</h5>
+                </div>
+                <img th:src="@{/assets/logo.png}" alt="logo">
+                <div class="item" onclick="copyToClipboard('mc.asterius.pl'); openWrapper('Zapisano do Schowka!', 'Pomyślnie zapisano do schowka adres serwera.')">
+                    <i class="fas fa-play-circle"></i>
+                    <h5>91 GRACZY ONLINE</h5>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-mode">
+            <h2>WYBIERZ TRYB</h2>
+            <div class="items">
+                <div class="item">
+                    <h3>SkyGen</h3>
+                    <h4>519 <i class="fas fa-user-friends" style="font-size: math"></i></h4>
+                    <img th:src="@{/assets/modes/skygen.jpg}" alt="image">
+                    <a href="">WYBIERZ</a>
+                </div>
+                <div class="item">
+                    <h3>Survival</h3>
+                    <h4>103 <i class="fas fa-user-friends" style="font-size: math"></i></h4>
+                    <img th:src="@{/assets/modes/survival.jpg}" alt="image">
+                    <a href="">WYBIERZ</a>
+                </div>
+            </div>
+        </div>
+        <footer>
+
+        </footer>
+    </div>
+<script>
+    let isWrapperActive = false;
+
+    function openWrapper(title, description){
+        if(isWrapperActive) return
+        const wrapper = document.querySelector(".wrapper");
+        let h2 = document.querySelector(".wrapper h1");
+        let h5 = document.querySelector(".wrapper h4");
+        let style = wrapper.style;
+        style.display = 'block';
+        isWrapperActive = true
+        setTimeout(() => {
+            style.opacity = '1';
+            h2.innerHTML = title;
+            h5.innerHTML = description;
+            setTimeout(() => {
+                closeWrapper();
+            }, 2000);
+        }, 50)
+    }
+
+    function closeWrapper() {
+        if(!isWrapperActive) return
+        const wrapper = document.querySelector(".wrapper");
+        let style = wrapper.style;
+        style.opacity = '0';
+        setTimeout(() => {
+            isWrapperActive = false
+            style.display = 'none';
+        }, 500)
+    }
+
+    function openUrl(content) {
+        window.location.href = content;
+    }
+    function copyToClipboard(content) {
+        const textarea = document.createElement("textarea");
+        textarea.style.height = 0;
+        document.body.appendChild(textarea);
+        textarea.value = content;
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+    }
+</script>
+</body>
+</html>
