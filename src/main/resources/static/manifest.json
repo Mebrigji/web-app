@@ -1,0 +1,23 @@
+{
+  "name": "Mokra Rączka - Profesjonalne pranie i czyszczenie",
+  "short_name": "Mokra Rączka",
+  "description": "Specjaliści w praniu, usuwaniu zapachów i czyszczeniu tapicerek. Zapewniamy świeże i czyste otoczenie.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a75ad",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/logos/color_vertical.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logos/color_vertical.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}

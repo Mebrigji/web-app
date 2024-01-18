@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    font-family: 'Montserrat' , sans-serif;
+    background-color:  #191919;
+    scroll-behavior: smooth;
+}
+
+.container {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.container h2{
+    margin: 1rem 0 0 0;
+}
+
+.container h3{
+    margin: 0 0 1rem 0;
+}
+
+.container img{
+    width: 300px;
+    height: 64px;
+}
+
+.container .message{
+    padding: 1rem 2rem;
+    box-shadow: 0 0 10px #000;
+    border-radius: 6px;
+    background: rgb(0 0 0 / 2%);
+}
+
+.message h2{
+    color: red;
+}
+
+.container a{
+    text-decoration: none;
+    padding: 1rem 0 0 0;
+    font-weight: bold;
+    color: #50abff;
+    transition: 400ms;
+}
+
+.container a:hover{
+    color: #0057A4;
+}

@@ -1,58 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" style="scroll-behavior: smooth">
+    <meta charset="UTF-8">
     <title>Mokra Rączka</title>
+
+    <link rel="manifest" th:href="@{/manifest.json}">
 
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" th:href="@{/assets/favicon.png}" type="image/png">
+    <script>
+        window.addEventListener("load", ev => {
+            document.querySelector(".loader").style.display = 'none';
+            document.querySelector(".root").style.display = 'block';
+        })
+    </script>
+
+    <link rel="shortcut icon" th:href="@{/assets/logos/color_vertical.png}" type="image/png">
     <link rel="stylesheet" th:href="@{/index.css}">
+    <link rel="stylesheet" th:href="@{/on-phone.css}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&amp;display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
     <div class="loader">
-
+        <img th:src="@{/assets/loader.webp}" alt="logo">
+        <h4>Trwa wczytywanie strony..</h4>
     </div>
     <div class="root">
-
         <div class="slider">
             <div class="topic"></div>
         </div>
 
+        <button class="nav-button" onclick="toggleNavigationBar()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <nav>
+            <a onclick="goTo('about-us')"><i class="fas fa-question"></i> O Nas</a>
+            <a onclick="goTo('contact')"><i class="fas fa-phone"></i> Kontakt</a>
+            <a onclick="goTo('price-list')"><i class="fas fa-coins"></i> Cennik</a>
+            <a onclick="goTo('gallery')"><i class="fas fa-archive"></i> Galeria</a>
+        </nav>
         <header>
-            <img class="logo" th:src="@{/assets/logos/white_horizontal.png}" alt="logo">
-            <nav>
-                <a href=""><i class="fas fa-coins"></i> Cennik</a>
-                <a href=""><i class="fas fa-archive"></i> Galeria</a>
-                <a href="" class="active"><i class="fas fa-home"></i> Strona Główna</a>
-                <a href=""><i class="fas fa-phone"></i> Kontakt</a>
-                <a href=""><i class="fas fa-question"></i> O Nas</a>
-            </nav>
+            <img class="logo" th:src="@{/assets/logos/white_horizontal.webp}" alt="logo">
+
         </header>
 
 
         <div class="container">
+
             <section class="about-us">
                 <h2>O NAS</h2>
-                <h3>Jesteśmy Mobilną Firmą zajmującą się profesjonalnym praniem, zwalczaniem nieprzyjemnych zapachów, czyszczeniem tapicerki oraz wykładzin.</h3>
+                <h3>Jesteśmy specjalistami w profesjonalnym praniu, eliminacji nieprzyjemnych zapachów oraz czyszczeniu tapicerek i wykładzin. Dzięki pasji i doświadczeniu tworzymy świeże i czyste otoczenie dla naszych klientów.</h3>
             </section>
-            <section class="gallery">
+
+            <section class="contact" data-aos="fade-up">
+                <h2>JESTEŚMY TUTAJ <i class="fas fa-search-location"></i></h2>
+                <div>
+                    <h4><i class="fas fa-envelope-open"></i> mokra.raczka@interia.pl</h4>
+                    <h4><i class="fas fa-phone-alt"></i> +48 517 111 955</h4>
+                    <a href="https://www.google.com/search?q=mokra+rączka-pranie+tapicerki" target='_blank'>LUB ODWIEDŹ NAS NA MIEJSCU</a>
+                </div>
+            </section>
+
+            <section class="price-list" data-aos="fade-up">
+                <h2>CENNIK</h2>
+                <div class="items">
+                    <div class="item" onclick="goTo('contact')">
+                        <h3>SOFA</h3>
+                        <h4>KOSZT OD 100zł</h4>
+                    </div>
+                    <div class="item" onclick="goTo('contact')">
+                        <h3>ŁÓŻKO</h3>
+                        <h4>KOSZT OD 150zł</h4>
+                    </div>
+                    <div class="item" onclick="goTo('contact')">
+                        <h3>MATERAC</h3>
+                        <h4>KOSZT OD 150zł</h4>
+                    </div>
+                    <div class="item" onclick="goTo('contact')">
+                        <h3>DYWAN</h3>
+                        <h4>KOSZT OD 20zł za m²</h4>
+                    </div>
+                    <div class="item" onclick="goTo('contact')">
+                        <h3>WYKŁADZINA</h3>
+                        <h4>KOSZT OD 15zł za m²</h4>
+                    </div>
+                    <div class="item" onclick="goTo('contact')">
+                        <h3>KRZESŁO</h3>
+                        <h4>KOSZT OD 15zł</h4>
+                    </div>
+                    <div class="item" onclick="goTo('contact')">
+                        <h3>FOTEL</h3>
+                        <h4>KOSZT OD 50zł</h4>
+                    </div>
+                    <div class="item" onclick="goTo('contact')">
+                        <h3>NEUTRALIZACJA ZAPACHÓW</h3>
+                        <h4>KOSZT OD 50zł</h4>
+                    </div>
+                    <div class="item" onclick="goTo('contact')">
+                        <h3>USUWANIE BAKTERII</h3>
+                        <h4>KOSZT OD 30zł</h4>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery" data-aos="fade-up">
                 <h2>NASZE PRACE</h2>
                 <div class="items">
-                    <div class="item" gallery_id="1">
-
+                    <div class="item">
+                        <img th:src="@{/assets/gallery/img.png}" alt="img">
                     </div>
-                    <button class="next"></button>
-                    <button class="previous"></button>
+                    <div class="item">
+                        <img th:src="@{/assets/gallery/img_1.png}" alt="img">
+                    </div>
+                    <div class="item">
+                        <img th:src="@{/assets/gallery/img_2.png}" alt="img">
+                    </div>
                 </div>
+                <a href="gallery">ZOBACZ WIECEJ</a>
             </section>
         </div>
 
@@ -65,9 +138,59 @@
             <a style="margin: 2rem 0 0 0"><i class="fas fa-envelope-open"></i> mokra.raczka@interia.pl</a>
             <a style="margin: 0.25rem 0 0.5rem 0"><i class="fas fa-phone"></i> +48 517 111 955</a>
             <hr width="50%">
-            <h5 style="margin: 0.5rem 0 0 0;">Copyright 2023 by Mokra Rączka. All Rights Reserved.</h5>
-            <h5 style="margin: 0 0 0.5rem 0">Made by: <a href="">Paweł Janocha</a></h5>
+            <h5 style="margin: 0.5rem 0 0 0;">Copyright 2024 by Mokra Rączka. All Rights Reserved.</h5>
+            <h5 style="margin: 0 0 0.5rem 0">Made by: <a href="https://github.com/Mebrigji">Paweł Janocha</a></h5>
         </footer>
     </div>
+    <script>
+        AOS.init();
+
+        let animation = false;
+
+        function toggleNavigationBar() {
+            if(animation) return
+
+            const nav = document.querySelector("nav");
+            const nav__button = document.querySelector(".nav-button i");
+
+            nav.classList.toggle("active");
+
+            animation = true
+            if(nav.classList.contains("active")){
+                let deg = 0;
+                let id = setInterval(() => {
+                    nav__button.style.transform = "rotate(" + (deg+=2) + "deg)";
+                    if(deg === 180){
+                        clearInterval(id)
+                        animation = false
+                    }
+                });
+            } else {
+                let deg = 180;
+                let id = setInterval(() => {
+                    nav__button.style.transform = "rotate(" + (deg-=2) + "deg)";
+                    if(deg === 0){
+                        clearInterval(id)
+                        animation = false
+                    }
+                });
+            }
+
+        }
+
+        function goTo(section) {
+            const element = document.querySelector("." + section);
+
+            if (element) {
+                const styles = window.getComputedStyle(element);
+                const marginTop = parseFloat(styles.marginTop) || 0;
+                const marginBottom = parseFloat(styles.marginBottom) || 0;
+                window.scrollTo({
+                    behavior: 'smooth',
+                    top: element.offsetTop - marginTop - marginBottom
+                });
+            }
+        }
+    </script>
 </body>
 </html>

@@ -13,4 +13,9 @@ public class UIMain {
         return new ModelAndView("index");
     }
 
+    @RequestMapping("loader")
+    public ModelAndView renderLoader(){
+        return new ModelAndView("loader");
+    }
+
 }
