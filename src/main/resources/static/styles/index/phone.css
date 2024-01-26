@@ -1,0 +1,15 @@
+@media screen and (max-width: 450px) {
+    .container{
+        margin: 200px 0 0 0;
+    }
+
+    .logo-message{
+        width: 80%;
+        height: 40px;
+    }
+
+    .background-logo{
+        height: 500px;
+        width: 80%;
+    }
+}

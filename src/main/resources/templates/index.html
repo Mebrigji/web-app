@@ -2,24 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mokra Rączka</title>
-
-    <link rel="manifest" th:href="@{/manifest.json}">
+    <title>Asterius.PL - Your MineCraft Server.</title>
 
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        window.addEventListener("load", ev => {
-            document.querySelector(".loader").style.display = 'none';
-            document.querySelector(".root").style.display = 'block';
-        })
-    </script>
-
-    <link rel="shortcut icon" th:href="@{/assets/logos/color_vertical.png}" type="image/png">
-    <link rel="stylesheet" th:href="@{/index.css}">
-    <link rel="stylesheet" th:href="@{/on-phone.css}">
+    <link rel="shortcut icon" th:href="@{/assets/logo.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/styles/index/main.css}">
+    <link rel="stylesheet" th:href="@{/styles/index/core.css}">
+    <link rel="stylesheet" th:href="@{/styles/index/phone.css}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,169 +20,122 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </head>
 <body>
     <div class="loader">
-        <img th:src="@{/assets/loader.webp}" alt="logo">
-        <h4>Trwa wczytywanie strony..</h4>
+
     </div>
     <div class="root">
-        <div class="slider">
-            <div class="topic"></div>
-        </div>
 
-        <button class="nav-button" onclick="toggleNavigationBar()">
-            <i class="fas fa-chevron-right"></i>
-        </button>
         <nav>
-            <a onclick="goTo('about-us')"><i class="fas fa-question"></i> O Nas</a>
-            <a onclick="goTo('contact')"><i class="fas fa-phone"></i> Kontakt</a>
-            <a onclick="goTo('price-list')"><i class="fas fa-coins"></i> Cennik</a>
-            <a onclick="goTo('gallery')"><i class="fas fa-archive"></i> Galeria</a>
+            <a href=""><i class="fas fa-bullhorn"></i></a>
+            <a href=""><i class="fas fa-calendar-alt"></i></a>
+            <a href="login"><i class="fas fa-user-circle"></i></a>
         </nav>
-        <header>
-            <img class="logo" th:src="@{/assets/logos/white_horizontal.webp}" alt="logo">
 
-        </header>
-
+        <img class="background-logo" th:src="@{/assets/logo.png}" alt="logo">
 
         <div class="container">
-
-            <section class="about-us">
-                <h2>O NAS</h2>
-                <h3>Jesteśmy specjalistami w profesjonalnym praniu, eliminacji nieprzyjemnych zapachów oraz czyszczeniu tapicerek i wykładzin. Dzięki pasji i doświadczeniu tworzymy świeże i czyste otoczenie dla naszych klientów.</h3>
-            </section>
-
-            <section class="contact" data-aos="fade-up">
-                <h2>JESTEŚMY TUTAJ <i class="fas fa-search-location"></i></h2>
-                <div>
-                    <h4><i class="fas fa-envelope-open"></i> mokra.raczka@interia.pl</h4>
-                    <h4><i class="fas fa-phone-alt"></i> +48 517 111 955</h4>
-                    <a href="https://www.google.com/search?q=mokra+rączka-pranie+tapicerki" target='_blank'>LUB ODWIEDŹ NAS NA MIEJSCU</a>
-                </div>
-            </section>
-
-            <section class="price-list" data-aos="fade-up">
-                <h2>CENNIK</h2>
-                <div class="items">
-                    <div class="item" onclick="goTo('contact')">
-                        <h3>SOFA</h3>
-                        <h4>KOSZT OD 100zł</h4>
+            <h2>Choose Game</h2>
+            <div class="list">
+                <div class="item" style="background: url('/assets/survival.png') no-repeat fixed center; background-size: cover;">
+                    <div class="title">
+                        <div class="pulsating-circle"></div>
+                        <h2>SURVIVAL + RPG</h2>
+                        <h4>
+                            <span th:utext="${players_1}"></span>
+                            <i class="fas fa-users"></i>
+                        </h4>
                     </div>
-                    <div class="item" onclick="goTo('contact')">
-                        <h3>ŁÓŻKO</h3>
-                        <h4>KOSZT OD 150zł</h4>
-                    </div>
-                    <div class="item" onclick="goTo('contact')">
-                        <h3>MATERAC</h3>
-                        <h4>KOSZT OD 150zł</h4>
-                    </div>
-                    <div class="item" onclick="goTo('contact')">
-                        <h3>DYWAN</h3>
-                        <h4>KOSZT OD 20zł za m²</h4>
-                    </div>
-                    <div class="item" onclick="goTo('contact')">
-                        <h3>WYKŁADZINA</h3>
-                        <h4>KOSZT OD 15zł za m²</h4>
-                    </div>
-                    <div class="item" onclick="goTo('contact')">
-                        <h3>KRZESŁO</h3>
-                        <h4>KOSZT OD 15zł</h4>
-                    </div>
-                    <div class="item" onclick="goTo('contact')">
-                        <h3>FOTEL</h3>
-                        <h4>KOSZT OD 50zł</h4>
-                    </div>
-                    <div class="item" onclick="goTo('contact')">
-                        <h3>NEUTRALIZACJA ZAPACHÓW</h3>
-                        <h4>KOSZT OD 50zł</h4>
-                    </div>
-                    <div class="item" onclick="goTo('contact')">
-                        <h3>USUWANIE BAKTERII</h3>
-                        <h4>KOSZT OD 30zł</h4>
+                    <div class="interactive">
+                        <a class="join" href=""><i class="fas fa-sign-in-alt"></i> JOIN</a>
+                        <a class="info" style="cursor: pointer"><i class="fas fa-question-circle"></i></a>
                     </div>
                 </div>
-            </section>
 
-            <section class="gallery" data-aos="fade-up">
-                <h2>NASZE PRACE</h2>
-                <div class="items">
-                    <div class="item">
-                        <img th:src="@{/assets/gallery/img.png}" alt="img">
+                <div class="item" style="background: url('/assets/skygen.png') no-repeat fixed center; background-size: cover;">
+                    <div class="title">
+                        <div class="pulsating-circle"></div>
+                        <h2>SKYGEN + RPG</h2>
+                        <h4>
+                            <span th:utext="${players_2}"></span>
+                            <i class="fas fa-users"></i>
+                        </h4>
                     </div>
-                    <div class="item">
-                        <img th:src="@{/assets/gallery/img_1.png}" alt="img">
-                    </div>
-                    <div class="item">
-                        <img th:src="@{/assets/gallery/img_2.png}" alt="img">
+                    <div class="interactive">
+                        <a class="join" href=""><i class="fas fa-sign-in-alt"></i> JOIN</a>
+                        <a class="info" style="cursor: pointer"><i class="fas fa-question-circle"></i></a>
                     </div>
                 </div>
-                <a href="gallery">ZOBACZ WIECEJ</a>
-            </section>
+
+            </div>
+            <button onclick="copyToClipboard('mc.asterius.pl')"><i class="fas fa-paperclip"></i> COPY MINECRAFT ADDRESS</button>
+
         </div>
 
-        <footer>
-            <div class="icons">
-                <a href="https://www.facebook.com/profile.php?id=100092446896468"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/mokra.raczka_pranie_tapicerek/"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.google.com/search?q=mokra+rączka-pranie+tapicerki"><i class="fab fa-google"></i></a>
+        <div class="account" th:if="${isLogged}">
+            <div class="avatar">
+                <h3>
+                    <span style="color: #0077b2">⚓ </span>
+                    <span th:utext="${nickName}"></span>
+                    <span style="color: #f5ac2a"> VIP</span>
+                </h3>
+                <img th:src="'https://visage.surgeplay.com/bust/256/' + ${nickName}" alt="avatar">
             </div>
-            <a style="margin: 2rem 0 0 0"><i class="fas fa-envelope-open"></i> mokra.raczka@interia.pl</a>
-            <a style="margin: 0.25rem 0 0.5rem 0"><i class="fas fa-phone"></i> +48 517 111 955</a>
-            <hr width="50%">
-            <h5 style="margin: 0.5rem 0 0 0;">Copyright 2024 by Mokra Rączka. All Rights Reserved.</h5>
-            <h5 style="margin: 0 0 0.5rem 0">Made by: <a href="https://github.com/Mebrigji">Paweł Janocha</a></h5>
-        </footer>
+            <div class="stats">
+                <h4>YOUR STATS</h4>
+                <div class="info">
+                    <h4>⚔️ 12</h4>
+                    <h4 th:text="'#' + ${stat_1}"></h4>
+                </div>
+                <div class="info">
+                    <h4>☠️ 6</h4>
+                    <h4 th:text="'#' + ${stat_2}"></h4>
+                </div>
+                <div class="info">
+                    <h4>⛏️ 10801</h4>
+                    <h4 th:text="'#' + ${stat_3}"></h4>
+                </div>
+                <div class="info">
+                    <h4>⌚ 9d 9h 15m 31s</h4>
+                    <h4 th:text="'#' + ${stat_4}"></h4>
+                </div>
+                <div class="balance">
+                    <h4>🪙 910</h4>
+                    <h4>💧 15</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="dial" th:unless="${isLogged}">
+            <h1 style="margin: 0.25rem 0;">Log In</h1>
+            <h2 style="margin: 0 1rem;">If you want to use our website with all its features, you must log in first. If you don't know how to log in, <a href="log-tutorial" style="text-decoration: none; color: #f5ac2a;">check it out</a> and enjoy exploring the corners of our website!</h2>
+            <script th:inline="javascript">
+                document.addEventListener('DOMContentLoaded', function () {
+                    const loginMessage = document.querySelector('.dial');
+                    setTimeout(function () {
+                        loginMessage.style.opacity = '0';
+                        setTimeout(() => {
+                            loginMessage.style.display = 'none';
+                        }, 1000)
+                    }, 5000);
+                });
+            </script>
+        </div>
     </div>
+
     <script>
-        AOS.init();
-
-        let animation = false;
-
-        function toggleNavigationBar() {
-            if(animation) return
-
-            const nav = document.querySelector("nav");
-            const nav__button = document.querySelector(".nav-button i");
-
-            nav.classList.toggle("active");
-
-            animation = true
-            if(nav.classList.contains("active")){
-                let deg = 0;
-                let id = setInterval(() => {
-                    nav__button.style.transform = "rotate(" + (deg+=2) + "deg)";
-                    if(deg === 180){
-                        clearInterval(id)
-                        animation = false
-                    }
-                });
-            } else {
-                let deg = 180;
-                let id = setInterval(() => {
-                    nav__button.style.transform = "rotate(" + (deg-=2) + "deg)";
-                    if(deg === 0){
-                        clearInterval(id)
-                        animation = false
-                    }
-                });
-            }
-
-        }
-
-        function goTo(section) {
-            const element = document.querySelector("." + section);
-
-            if (element) {
-                const styles = window.getComputedStyle(element);
-                const marginTop = parseFloat(styles.marginTop) || 0;
-                const marginBottom = parseFloat(styles.marginBottom) || 0;
-                window.scrollTo({
-                    behavior: 'smooth',
-                    top: element.offsetTop - marginTop - marginBottom
-                });
-            }
+        function copyToClipboard(content){
+            const textarea = document.createElement("textarea");
+            textarea.style.height = 0;
+            document.body.appendChild(textarea);
+            textarea.value = content;
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
         }
     </script>
+
 </body>
 </html>

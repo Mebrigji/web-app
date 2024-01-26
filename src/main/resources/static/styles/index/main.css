@@ -1,0 +1,257 @@
+
+.logo-message{
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0);
+    z-index: -1;
+}
+
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+}
+
+.container .list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container .list .item{
+    padding: 1rem 2rem;
+    margin: 0.5rem 1rem;
+    box-shadow: 0 0 5px #000;
+    border-radius: 8px;
+    backdrop-filter: blur(5px) grayscale(50%);
+    opacity: 60%;
+    width: 240px;
+    height: 340px;
+    display: block;
+    transition: scale 400ms, opacity 150ms;
+}
+
+.container .list .item:hover{
+    opacity: 1;
+    box-shadow: 0 0 5px #00000050;
+    backdrop-filter: none;
+    scale: 102.5%;
+}
+
+.container .list .item .title{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    backdrop-filter: blur(5px) grayscale(20%);
+    box-shadow: 0 0 10px #191919;
+    text-align: center;
+    padding: 0.25rem;
+}
+
+
+.container .list .item .title h2{
+    margin: 0;
+}
+
+.container .list .item .title h4{
+    margin: 0;
+}
+
+
+.container .list .item .interactive{
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    border-radius: 0 0 8px 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: rgb(0 0 0 / 20%);
+    backdrop-filter: grayscale(50%) blur(1px);
+    padding: 1rem 0;
+}
+
+.interactive a{
+    text-decoration: none;
+    transition: 400ms;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin: 0 0.25rem;
+}
+
+.interactive a.info{
+    color: white;
+    width: 10%;
+}
+
+
+.interactive a.join{
+    background: #f5ac2a;
+    color: #4f4f4f;
+    width: 60%;
+    margin-left: 1.5rem;
+}
+
+.interactive a.join:hover{
+    color: #f5ac2a;
+    background: #f5ac2a50;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px 0 #40fd23;
+    }
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 15px 2px #40fd23;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px 0 #40fd23;
+    }
+}
+
+.pulsating-circle {
+    position: absolute;
+    bottom: 18%;
+    right: 4.5rem;
+    width: 10px;
+    height: 10px;
+    background-color: #40fd23;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+
+button{
+    position: relative;
+    border: none;
+    color: #4f4f4f;
+    background: #c2ff97;
+    border-radius: 8px;
+    transition: 400ms;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+}
+
+button:hover{
+    color: #c2ff97;
+    background: #c2ff9720;
+}
+
+.dial{
+    z-index: 10;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: 500ms;
+    color: white;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    backdrop-filter: blur(5px) grayscale(50%);
+    box-shadow: 0 0 10px #000;
+    height: 100%;
+    width: 100%;
+}
+
+.account{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgb(0 0 0 / 20%);
+    border-radius: 8px;
+    backdrop-filter: blur(5px) grayscale(50%);
+    box-shadow: 0 0 10px #00000020;
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 1rem;
+}
+
+.account .stats{
+    margin: 0 0 0 1rem;
+    color: white;
+}
+
+.stats h4{
+    text-align: center;
+}
+
+.stats .info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    transition: 150ms;
+    cursor: default;
+}
+
+.stats .info:hover{
+    background: rgb(255 255 255 / 15%);
+}
+
+.info h4{
+    color: #c2ff97;
+    margin: 0;
+    padding: 0.125rem 0.5rem;
+}
+
+.stats .balance {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.balance h4{
+    padding: 0 1rem 0 0.25rem;
+}
+
+.account .avatar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    border-right: 1px solid #c2ff97;
+    padding: 0 1.5rem 0 0;
+}
+
+.avatar h3{
+    margin: 0.5rem 0;
+}
+
+.avatar img{
+    margin: 0;
+    width: 128px;
+}
