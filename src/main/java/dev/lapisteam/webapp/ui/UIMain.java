@@ -30,9 +30,4 @@ public class UIMain {
         return new ModelAndView("index");
     }
 
-    @RequestMapping("login")
-    public ModelAndView renderLogin(Model model){
-        return new ModelAndView("login");
-    }
-
 }

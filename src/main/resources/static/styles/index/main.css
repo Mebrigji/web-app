@@ -104,14 +104,14 @@
 
 
 .interactive a.join{
-    background: #f5ac2a;
+    background: #fdc96c;
     color: #4f4f4f;
     width: 60%;
     margin-left: 1.5rem;
 }
 
 .interactive a.join:hover{
-    color: #f5ac2a;
+    color: #fdc96c;
     background: #f5ac2a50;
 }
 
@@ -184,20 +184,33 @@ button:hover{
 
 .account{
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 50%;
+    left: -3px;
+    transform: translateY(-50%);
     background: rgb(0 0 0 / 20%);
-    border-radius: 8px;
+    border-radius: 0 8px 8px 0;
     backdrop-filter: blur(5px) grayscale(50%);
     box-shadow: 0 0 10px #00000020;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 0.5rem 1rem;
 }
 
 .account .stats{
-    margin: 0 0 0 1rem;
     color: white;
+    transition: 400ms;
+}
+
+.account .stats *{
+    opacity: 0;
+}
+
+.account .stats.active *{
+    opacity: 1;
+}
+
+.account .stats.active{
+    border-top: 1px solid #c2ff97;
 }
 
 .stats h4{
@@ -242,9 +255,7 @@ button:hover{
     justify-content: center;
     align-items: center;
     color: white;
-
-    border-right: 1px solid #c2ff97;
-    padding: 0 1.5rem 0 0;
+    padding: 0 0 1.5rem 0;
 }
 
 .avatar h3{
@@ -254,4 +265,17 @@ button:hover{
 .avatar img{
     margin: 0;
     width: 128px;
+}
+
+.account button{
+    background: transparent;
+    border: none;
+    font-size: x-large;
+    color: #c2ff9760;
+    margin: 0;
+    transition: 400ms;
+}
+
+.account button:hover{
+    color: #c2ff97;
 }

@@ -23,14 +23,14 @@ body{
 
 nav{
     position: fixed;
-    left: -8px;
+    right: -1px;
     top: 50%;
 
     padding: 1rem;
     transform: translateY(-50%);
 
     box-shadow: 0 0 10px #000;
-    border-radius: 8px;
+    border-radius: 8px 0 0 8px;
     backdrop-filter: blur(5px) grayscale(50%);
 
     display: flex;

@@ -29,9 +29,9 @@
     <div class="root">
 
         <nav>
-            <a href=""><i class="fas fa-bullhorn"></i></a>
-            <a href=""><i class="fas fa-calendar-alt"></i></a>
-            <a href="login"><i class="fas fa-user-circle"></i></a>
+            <a href="announcements"><i class="fas fa-bullhorn"></i></a>
+            <a href="calendar"><i class="fas fa-calendar-alt"></i></a>
+            <a href="panel"><i class="fas fa-user-circle"></i></a>
         </nav>
 
         <img class="background-logo" th:src="@{/assets/logo.png}" alt="logo">
@@ -49,8 +49,8 @@
                         </h4>
                     </div>
                     <div class="interactive">
-                        <a class="join" href=""><i class="fas fa-sign-in-alt"></i> JOIN</a>
-                        <a class="info" style="cursor: pointer"><i class="fas fa-question-circle"></i></a>
+                        <a href="server?id=survival" class="join"><i class="fas fa-sign-in-alt"></i> JOIN</a>
+                        <a href="info?id=survival" class="info" style="cursor: pointer"><i class="fas fa-question-circle"></i></a>
                     </div>
                 </div>
 
@@ -64,28 +64,13 @@
                         </h4>
                     </div>
                     <div class="interactive">
-                        <a class="join" href=""><i class="fas fa-sign-in-alt"></i> JOIN</a>
-                        <a class="info" style="cursor: pointer"><i class="fas fa-question-circle"></i></a>
-                    </div>
-                </div>
-
-                <div class="item" style="background: url('/assets/skygen.png') no-repeat fixed center; background-size: cover;">
-                    <div class="title">
-                        <div class="pulsating-circle"></div>
-                        <h2>SKYBLOCK + RPG</h2>
-                        <h4>
-                            <span th:utext="${players_2}"></span>
-                            <i class="fas fa-users"></i>
-                        </h4>
-                    </div>
-                    <div class="interactive">
-                        <a class="join" href=""><i class="fas fa-sign-in-alt"></i> JOIN</a>
-                        <a class="info" style="cursor: pointer"><i class="fas fa-question-circle"></i></a>
+                        <a href="server?id=skygen" class="join"><i class="fas fa-sign-in-alt"></i> JOIN</a>
+                        <a href="info?id=skygen" class="info" style="cursor: pointer"><i class="fas fa-question-circle"></i></a>
                     </div>
                 </div>
 
             </div>
-            <button onclick="copyToClipboard('mc.asterius.pl')"><i class="fas fa-paperclip"></i> COPY MINECRAFT ADDRESS</button>
+            <button onclick="copyToClipboard('mc.asterius.pl')"><i class="fas fa-link"></i> COPY MINECRAFT ADDRESS</button>
 
         </div>
 
@@ -98,6 +83,9 @@
                 </h3>
                 <img th:src="'https://visage.surgeplay.com/bust/256/' + ${nickName}" alt="avatar">
             </div>
+
+            <button onclick="toggleStats()"><i class="fas fa-chevron-down"></i></button>
+
             <div class="stats">
                 <h4>YOUR STATS</h4>
                 <div class="info">
@@ -141,6 +129,53 @@
     </div>
 
     <script>
+
+        const stats = document.querySelector(".account .stats");
+        const originalHeight = stats.clientHeight;
+        stats.style.height = 0;
+
+        function toggleStats(){
+            const element = document.querySelector(".account .stats");
+            const button = document.querySelector(".account button");
+
+            if(element.classList.contains("active")){
+                rotateButton(180, -4, button)
+                adjustStatsHeight(element, 0, -30);
+                element.classList.remove("active");
+            } else {
+                rotateButton(0, 4, button);
+                adjustStatsHeight(element, originalHeight, 30);
+                element.classList.add("active");
+            }
+        }
+
+        function adjustStatsHeight(element, targetHeight, increment) {
+            const styleHeight = element.style.height
+            let height = styleHeight.length !== 0 ? styleHeight.substring(0, styleHeight.length-2) : element.clientHeight
+
+            const id = setInterval(() => {
+                if(increment > 0) height = height + increment > originalHeight ? originalHeight : height + increment;
+                else {
+                    height -= Math.abs(increment);
+                    if(height < 0) height = 0
+                }
+
+                if(height === targetHeight) clearInterval(id);
+
+                element.style.height = `${height}px`
+            }, 10)
+        }
+
+        function rotateButton(deg, increment, button) {
+            const buttonId = setInterval(() => {
+                button.style.transform = `rotate(${deg}deg)`;
+                if ((deg >= 180 && increment > 0) || (deg <= 0 && increment < 0)) {
+                    clearInterval(buttonId);
+                }
+                deg += increment;
+            }, 5);
+        }
+
         function copyToClipboard(content){
             const textarea = document.createElement("textarea");
             textarea.style.height = 0;

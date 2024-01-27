@@ -8,9 +8,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" th:href="@{/assets/logo.png}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="shortcut icon" th:href="@{/assets/logo.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/unexpected.css}">
 </head>
 <body>
-    <h2>Unexpected error found</h2>
+
+    <img class="background-logo" th:src="@{/assets/logo.png}" alt="logo">
+
+    <div class="container">
+        <div th:if="${code == 404}">
+            <h1>Sorry but</h1>
+            <h2>The page you are trying to launch does not exist :(</h2>
+
+            <div class="message">
+                <h4 th:utext="'<i class=\'fas fa-search\'></i> https://asterius.pl/' + ${message.substring(19, message.length()-1)}"></h4>
+                <a href="../"><i class="fas fa-reply"></i> BACK</a>
+            </div>
+        </div>
+
+        <div th:if="${code == 500}">
+            <h1>Something went wrong :(</h1>
+            <h4 th:text="${message}"></h4>
+            <a href="../"><i class="fas fa-reply"></i> BACK</a>
+        </div>
+
+        <div th:if="${code != 500 && code != 404}">
+            <h1>Unexpected error found.</h1>
+            <h4 th:text="'Code: ' + ${code}"></h4>
+            <h4 th:text="${message}"></h4>
+            <a href="../"><i class="fas fa-reply"></i> BACK</a>
+        </div>
+
+    </div>
 </body>
 </html>
