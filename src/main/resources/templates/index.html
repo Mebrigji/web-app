@@ -9,9 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" th:href="@{/assets/logo.png}" type="image/png">
-    <link rel="stylesheet" th:href="@{/styles/index/main.css}">
-    <link rel="stylesheet" th:href="@{/styles/index/core.css}">
+    <link rel="stylesheet" th:href="@{/styles/loader.css}">
+
+    <link rel="stylesheet" th:href="@{/styles/index/index.css}">
     <link rel="stylesheet" th:href="@{/styles/index/phone.css}">
+
+    <script>
+        window.addEventListener("load", ev => {
+            document.querySelector(".loader").style.display = 'none';
+            document.querySelector(".root").style.display = 'block';
+        })
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +32,10 @@
 </head>
 <body>
     <div class="loader">
-
+        <img th:src="@{/assets/logo.png}" alt="logo">
+        <h3>Loading...</h3>
     </div>
+
     <div class="root">
 
         <nav>
@@ -49,7 +59,7 @@
                         </h4>
                     </div>
                     <div class="interactive">
-                        <a href="server?id=survival" class="join"><i class="fas fa-sign-in-alt"></i> JOIN</a>
+                        <a href="/page/server/index?id=survival" class="join"><i class="fas fa-sign-in-alt"></i> JOIN</a>
                         <a href="info?id=survival" class="info" style="cursor: pointer"><i class="fas fa-question-circle"></i></a>
                     </div>
                 </div>
@@ -64,7 +74,7 @@
                         </h4>
                     </div>
                     <div class="interactive">
-                        <a href="server?id=skygen" class="join"><i class="fas fa-sign-in-alt"></i> JOIN</a>
+                        <a href="/page/server/index?id=skygen" class="join"><i class="fas fa-sign-in-alt"></i> JOIN</a>
                         <a href="info?id=skygen" class="info" style="cursor: pointer"><i class="fas fa-question-circle"></i></a>
                     </div>
                 </div>
@@ -130,14 +140,12 @@
 
     <script>
 
-        const stats = document.querySelector(".account .stats");
-        const originalHeight = stats.clientHeight;
-        stats.style.height = 0;
+        const element = document.querySelector(".account .stats");
+        const button = document.querySelector(".account button");
+        const originalHeight = 230;
+        element.style.height = 0;
 
         function toggleStats(){
-            const element = document.querySelector(".account .stats");
-            const button = document.querySelector(".account button");
-
             if(element.classList.contains("active")){
                 rotateButton(180, -4, button)
                 adjustStatsHeight(element, 0, -30);

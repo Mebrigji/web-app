@@ -2,9 +2,173 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title th:text="@{name}"></title>
+    <title th:text="'Asterius.PL - ' + ${serverId} + ' panel'"></title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/styles/loader.css}">
+    <link rel="stylesheet" th:href="@{/styles/page/main.css}">
+
+    <link rel="shortcut icon" th:href="@{/assets/logo.png}" type="image/png">
+
+    <script>
+        window.addEventListener("load", ev => {
+            document.querySelector(".loader").style.display = 'none';
+            document.querySelector(".root").style.display = 'block';
+        })
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
+    <div class="loader">
+        <img th:src="@{/assets/logo.png}" alt="logo">
+        <h2>Loading...</h2>
+    </div>
+    <div class="root">
+
+        <img class="background-logo" th:src="@{/assets/logo.png}" alt="logo">
+
+        <nav>
+            <div class="server">
+                <h4 th:utext="${serverId.toUpperCase()}"></h4>
+                <h4 th:utext="'<i class=\'fas fa-users\'></i> ' + ${players} + ' <div class=\'pulsating-circle active\'></div>'"></h4>
+            </div>
+            <div class="list">
+                <h5><i class="fas fa-ban"></i> PUNISHMENTS</h5>
+                <h5><i class="fas fa-medal"></i> LEADERBOARD</h5>
+                <h5><i class="fas fa-users"></i> ONLINE</h5>
+                <h5 class="wallet"><i class="fas fa-wallet"></i> TOP UP</h5>
+            </div>
+            <a href="/"><i class="fas fa-home"></i> HOME</a>
+        </nav>
+
+        <div class="container">
+            <div class="last-join">
+                <h2>LAST JOINED</h2>
+                <div class="list">
+                    <div class="item">
+                        <div class="account">
+                            <h3>Mebrigji</h3>
+                            <img src="https://visage.surgeplay.com/bust/256/Mebrigji" alt="avatar">
+                            <h4><i class="fas fa-clock"></i> 1m 1s ago.</h4>
+                        </div>
+                        <div class="stats">
+                            <h4>⚔️ 12</h4>
+                            <h4>☠️ 6</h4>
+                            <h4>⛏️ 10801</h4>
+                            <h4>⌚ 9d 9h 15m 31s</h4>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="account">
+                            <h3>G0LDE3N</h3>
+                            <img src="https://visage.surgeplay.com/bust/256/G0LDE3N" alt="avatar">
+                            <h4><i class="fas fa-clock"></i> 1m 10s ago.</h4>
+                        </div>
+
+                        <div class="stats">
+                            <h4>⚔️ 12</h4>
+                            <h4>☠️ 6</h4>
+                            <h4>⛏️ 10801</h4>
+                            <h4>⌚ 9d 9h 15m 31s</h4>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="account">
+                            <h3>_K4SA_</h3>
+                            <img src="https://visage.surgeplay.com/bust/256/_K4SA_" alt="avatar">
+                            <h4><i class="fas fa-clock"></i> 1m 20s ago.</h4>
+                        </div>
+
+                        <div class="stats">
+                            <h4>⚔️ 12</h4>
+                            <h4>☠️ 6</h4>
+                            <h4>⛏️ 10801</h4>
+                            <h4>⌚ 9d 9h 15m 31s</h4>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="account">
+                            <h3>Alusiowata</h3>
+                            <img src="https://visage.surgeplay.com/bust/256/Alusiowata" alt="avatar">
+                            <h4><i class="fas fa-clock"></i> 1m 30s ago.</h4>
+                        </div>
+
+                        <div class="stats">
+                            <h4>⚔️ 12</h4>
+                            <h4>☠️ 6</h4>
+                            <h4>⛏️ 10801</h4>
+                            <h4>⌚ 9d 9h 15m 31s</h4>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="account">
+                            <h3>Mitro</h3>
+                            <img src="https://visage.surgeplay.com/bust/256/Mitro" alt="avatar">
+                            <h4><i class="fas fa-clock"></i> 1m 40s ago.</h4>
+                        </div>
+
+                        <div class="stats">
+                            <h4>⚔️ 12</h4>
+                            <h4>☠️ 6</h4>
+                            <h4>⛏️ 10801</h4>
+                            <h4>⌚ 9d 9h 15m 31s</h4>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="account">
+                            <h3>Rakieta67</h3>
+                            <img src="https://visage.surgeplay.com/bust/256/Rocket" alt="avatar">
+                            <h4><i class="fas fa-clock"></i> 1m 50s ago.</h4>
+                        </div>
+
+                        <div class="stats">
+                            <h4>⚔️ 12</h4>
+                            <h4>☠️ 6</h4>
+                            <h4>⛏️ 10801</h4>
+                            <h4>⌚ 9d 9h 15m 31s</h4>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="account">
+                            <h3>Neroks</h3>
+                            <img src="https://visage.surgeplay.com/bust/256/Neroks" alt="avatar">
+                            <h4><i class="fas fa-clock"></i> 2m ago.</h4>
+                        </div>
+
+                        <div class="stats">
+                            <h4>⚔️ 12</h4>
+                            <h4>☠️ 6</h4>
+                            <h4>⛏️ 10801</h4>
+                            <h4>⌚ 9d 9h 15m 31s</h4>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="account">
+                            <h3>_K4SA_</h3>
+                            <img src="https://visage.surgeplay.com/bust/256/_K4SA_" alt="avatar">
+                            <h4><i class="fas fa-clock"></i> 2m 10s ago.</h4>
+                        </div>
+
+                        <div class="stats">
+                            <h4>⚔️ 12</h4>
+                            <h4>☠️ 6</h4>
+                            <h4>⛏️ 10801</h4>
+                            <h4>⌚ 9d 9h 15m 31s</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
