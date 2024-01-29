@@ -8,6 +8,8 @@ body{
     background: #191919;
 
     font-family: Lato, sans-serif;
+
+    overflow-x: hidden;
 }
 
 
@@ -59,8 +61,24 @@ nav a{
     transition: 400ms;
 }
 
+
 nav a:hover{
     color: #709a52;
+}
+
+nav a::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #709a52;
+    transition: width 300ms ease;
+}
+
+nav a:hover::after{
+    width: 100%;
 }
 
 nav .server h4{
@@ -88,6 +106,21 @@ nav .list h5{
     cursor: pointer;
 }
 
+nav .list h5::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #709a52;
+    transition: width 300ms ease;
+}
+
+nav .list h5:hover::after{
+    width: 100%;
+}
+
 nav .list h5:hover{
     color: #709a52;
 }
@@ -99,6 +132,21 @@ nav .list h5.wallet{
 
 nav .list h5.wallet:hover{
     color: #f5ac2a;
+}
+
+nav .list h5.wallet::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #f5ac2a;
+    transition: width 300ms;
+}
+
+nav .list h5.wallet:hover::after{
+    width: 100%;
 }
 
 @keyframes pulse-green {
@@ -158,73 +206,182 @@ nav .list h5.wallet:hover{
     margin: 100px 0 80px 0;
 }
 
-.container .last-join{
+.container .statistics{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
+    justify-content: center;
 }
 
-.container .last-join .list{
-    position: relative;
+.container .statistics .server{
+    position: absolute;
+    left: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .statistics .server .item{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 0 6rem;
 }
 
-.last-join .list .item{
-    margin: 0.5rem 1rem;
+.container .statistics .account{
+    position: absolute;
+
+    right: 0;
+    transform: translateX(-8rem);
+
+    border: 1px solid #709a52;
+    border-radius: 8px;
+
+    box-shadow: 0 0 8px #00000020;
+    background: #00000020;
+
+    color: white;
+
+    padding: 1rem;
 
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
 
-    backdrop-filter: blur(5px) grayscale(40%);
-    background: rgb(255 255 255 / 5%);
+.container .statistics .account .stats{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 
-    border: 1px solid #c2ff97;
     border-radius: 8px;
-    box-shadow: 0 0 10px #c2ff97;
+    box-shadow: 0 0 10px #000;
 
-    transition: 500ms;
+    padding: 1rem;
+
+    cursor: default;
 }
 
-.last-join .list .item:hover{
-    scale: 105%;
+.container .statistics .account .stats h4{
+    margin: 0 0 1rem 0;
 }
 
-.last-join .list .item .account{
+.container .statistics .account .stats .info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: 150ms;
+}
+
+.container .statistics .account .stats .info:hover{
+    background: rgb(255 255 255 / 15%);
+}
+
+.container .statistics .account .stats .info h4{
+    margin: 0 1rem;
+    color: #c2ff97;
+}
+
+.container .statistics .account .avatar{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    padding: 0 1rem;
+
+    padding: 0 0.8rem 0 0;
+    margin: 0 1rem 0 0;
+    border-right: 1px solid #709a52;
 }
 
-.last-join .list .item .account img{
+.container .statistics .account .avatar h3{
+    margin: 0.5rem 0;
+}
+
+.container .statistics .account .avatar img{
     width: 128px;
 }
-.last-join .list .item .account h4{
-    color: #4f4f4f;
+
+.container .statistics .account .history{
+    position: absolute;
+    top: 14rem;
+    right: 0;
+
+    text-align: center;
+
+    color: white;
+
+    border: 1px solid #709a52;
+    border-radius: 8px;
+
+    padding: 1rem;
 }
 
-.last-join .list .item .stats{
-    cursor: default;
+.container .statistics .account .history h3{
+    margin: 0 0 0.5rem 0;
+}
+
+.container .statistics .account .history .list{
+    position: relative;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    padding: 0 1.5rem 0 0;
+    align-items: center;
+
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-wrap: normal;
+
+    height: 250px;
+    min-width: 250px;
+
+    padding: 0.5rem;
+
+    border-radius: 4px;
+    box-shadow: 0 0 8px #000;
+
+    cursor: default;
 }
 
-.last-join .list .item .stats h4{
+.container .statistics .account .history .list .info{
+    position: relative;
+    padding: 0.25rem 1rem;
+
+    transition: 400ms;
+
+    width: 100%;
+}
+
+.container .statistics .account .history .list .info::after{
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 2px;
+    background: #c2ff97;
+    transition: width 400ms;
+}
+
+.container .statistics .account .history .list .info:hover::after{
+    width: 100%;
+}
+
+.container .statistics .account .history .list .info:hover{
+    background: rgb(255 255 255 / 10%);
+}
+
+.container .statistics .account .history .list .info h4{
     color: #c2ff97;
     margin: 0;
-    padding: 0.125rem 0.5rem;
-    width: 100%;
+}
+
+.container .statistics .account .history .list .info h5{
+    color: #4f4f4f;
+    margin: 0;
 }
