@@ -22,4 +22,12 @@ public class UIGame {
         return new ModelAndView("page/gameIndex");
     }
 
+    @GetMapping("top-up")
+    public ModelAndView renderTopUp(@RequestParam String id, Model model){
+        model.addAttribute("cspHeaderValue", "frame-ancestors 'self'");
+        return new ModelAndView("page/top-up");
+    }
+
+
+
 }

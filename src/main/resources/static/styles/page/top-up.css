@@ -1,0 +1,128 @@
+body{
+    font-family: Roboto, sans-serif;
+}
+
+form{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+form .types{
+    display: flex;
+    flex-direction: column;
+
+    align-items: start;
+
+    border-right: 1px solid #c2ff97;
+
+    padding: 0 1rem 0 0;
+    margin: 0 1rem 0 0;
+}
+
+form .types button{
+    all: unset;
+
+    color: #c2ff97;
+    background: rgb(255 255 255 / 5%);
+
+    border: 1px solid #c2ff97;
+
+    padding: 0.25rem;
+    margin: 0.25rem 0 0 0;
+
+    transition: 400ms;
+
+    cursor: pointer;
+
+    width: 100%;
+}
+
+form .types button:hover{
+    color: #709a52;
+    border: 1px solid #709a52;
+
+    background: rgb(255 255 255 / 8%);
+}
+
+form .container section{
+    display: none;
+}
+
+form .container section.active{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: white;
+}
+
+form .container section input[type=text]{
+    color: #c2ff97;
+
+    background: transparent;
+
+    border: 1px solid #709a52;
+    border-radius: 4px;
+
+    padding: 0.25rem;
+    margin: 0.5rem 0;
+
+    outline: none;
+}
+
+
+form .container section input[type=text]::placeholder{
+    color: #c2ff97;
+}
+
+form .container section input[type=submit]{
+    all: unset;
+    text-align: center;
+
+    color: #c2ff97;
+
+    width: 100%;
+    padding: 0.25rem 0;
+
+    border-radius: 8px;
+
+    transition: 400ms;
+    cursor: pointer;
+}
+
+
+form .container section input[type=submit]::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #709a52;
+    transition: width 300ms ease;
+}
+
+form .container section input[type=submit]:hover::after{
+    width: 100%;
+}
+
+form .container section .type{
+    color: #c2ff97;
+}
+
+form .container section .type h3{
+    margin: 0 0 1rem 0;
+    color: #709a52;
+}
+form .container section .type h4{
+    margin: 0.25rem 0;
+}

@@ -8,6 +8,8 @@ body{
     background: #191919;
 
     font-family: Lato, sans-serif;
+
+    overflow-x: hidden;
 }
 
 .background-logo{

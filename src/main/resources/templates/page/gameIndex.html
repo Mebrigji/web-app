@@ -56,10 +56,50 @@
             <section class="statistics">
 
                 <div class="server">
-                    <h2>LEADERBOARD</h2>
-                    <div class="item">
-                        <img src="https://visage.surgeplay.com/face/48/Mebrigji" alt="avatar">
-                        <h3>Mebrigji</h3>
+                    <h2>GLOBAL STATISTICS <i class="fas fa-info-circle" Tooltip description="If the progress bar of any statistic is full, the required amount of the goal will be increased. Once all requirements are met, each registered user receives rewards."></i></h2>
+                    <h4>UPDATE ON EVERY 10 MINUTES</h4>
+                    <div class="list">
+                        <div class="item" actual="913" target="5000" Tooltip description="If the progress bar is full, the required amount of the goal will be increased. Once all requirements are met, each registered user receives rewards.">
+                            <i class="fas fa-house-user"></i>
+                            <h4>ISLANDS CREATED</h4>
+                            <h5>913 / 5000</h5>
+                        </div>
+                        <div class="item" actual="49300" target="50000" Tooltip description="If the progress bar is full, the required amount of the goal will be increased. Once all requirements are met, each registered user receives rewards.">
+                            <i class="fas fa-users"></i>
+                            <h4>REGISTERED USERS</h4>
+                            <h5>49300 / 50000</h5>
+                        </div>
+                        <div class="item" actual="990" target="10000" Tooltip description="If the progress bar is full, the required amount of the goal will be increased. Once all requirements are met, each registered user receives rewards.">
+                            <i class="fas fa-fist-raised"></i>
+                            <h4>TOTAL ISLANDS LEVEL</h4>
+                            <h5>990 / 10000</h5>
+                        </div>
+                        <div class="item" actual="23" target="100" Tooltip description="If the progress bar is full, the required amount of the goal will be increased. Once all requirements are met, each registered user receives rewards.">
+                            <i class="fas fa-user-clock"></i>
+                            <h4>TOTAL TIME SPEND</h4>
+                            <h5>63d 11h 55m 31s</h5>
+                        </div>
+                        <div class="item" actual="913" target="1000" Tooltip description="If the progress bar is full, the required amount of the goal will be increased. Once all requirements are met, each registered user receives rewards.">
+                            <i style="font-style: normal">⚔️</i>
+                            <h4>SERVER KILLS</h4>
+                            <h5>913 / 1000</h5>
+                        </div>
+                        <div class="item" actual="2191" target="5000" Tooltip description="If the progress bar is full, the required amount of the goal will be increased. Once all requirements are met, each registered user receives rewards.">
+                            <i style="font-style: normal">💀</i>
+                            <h4>SERVER DEATHS</h4>
+                            <h5>2191 / 5000</h5>
+                        </div>
+                        <div class="item" actual="931102.91" target="1000000" Tooltip description="If the progress bar is full, the required amount of the goal will be increased. Once all requirements are met, each registered user receives rewards.">
+                            <i class="fas fa-bullseye"></i>
+                            <h4>DAMAGE DEALT</h4>
+                            <h5>931102.91 / 1000000</h5>
+                        </div>
+
+                        <div class="item" actual="331102.91" target="500000" Tooltip description="If the progress bar is full, the required amount of the goal will be increased. Once all requirements are met, each registered user receives rewards.">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>DAMAGE TAKEN</h4>
+                            <h5>331102.91 / 500000</h5>
+                        </div>
                     </div>
                 </div>
 
@@ -160,12 +200,66 @@
                     </div>
                 </div>
 
-                <div class="users"></div>
             </section>
+
+            <section class="application">
+                <iframe th:src="'top-up?id=' + ${serverId}" frameborder="0" width="100%" height="100%"></iframe>
+            </section>
+
+            <footer>
+                <div class="rights">
+                    <h2>ASTERIUS.PL</h2>
+                    <h4>All Rights Reserved. 2024 ©</h4>
+                </div>
+            </footer>
         </div>
     </div>
 
     <script type="application/javascript">
+
+        const tooltipMap = new Map()
+
+        document.querySelectorAll("*[Tooltip]").forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                activeTooltip(element)
+            })
+            element.addEventListener('mouseleave', () => {
+                disableTooltip(element)
+            })
+        })
+
+        function activeTooltip(element){
+            if(!element.hasAttribute("description")) return
+            const tooltip = document.createElement("h4")
+            tooltip.classList.add("tooltip")
+            tooltip.innerText = element.getAttribute("description")
+            element.appendChild(tooltip)
+            tooltipMap.set(element, tooltip)
+        }
+
+        function disableTooltip(element){
+            if(!element.hasAttribute("description")) return
+            element.removeChild(tooltipMap.get(element))
+            tooltipMap.delete(element)
+        }
+
+        const itemElements = document.querySelectorAll('.container .statistics .server .item');
+
+        itemElements.forEach(item => {
+            const actual = parseFloat(item.getAttribute("actual"))
+            const target = parseFloat(item.getAttribute("target"))
+
+            const percentage = ((actual * 100) / target);
+
+            const increaseFoot = percentage * 0.005
+
+            let animated = 0;
+
+            const id = setInterval(() => {
+                if(animated >= percentage) clearInterval(id)
+                item.style.setProperty('--width', (animated+=increaseFoot) + '%')
+            }, 5)
+        })
 
     </script>
 

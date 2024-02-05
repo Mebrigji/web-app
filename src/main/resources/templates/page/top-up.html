@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charge wallet</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/styles/page/top-up.css}">
+</head>
+<body>
+    <form action="charge" method="post">
+
+        <div class="types">
+            <button onclick="changePaymentMethod('sms')">SMS</button>
+            <button onclick="changePaymentMethod('paypal')">PAYPAL</button>
+            <button onclick="changePaymentMethod('transfer')">TRANSFER</button>
+            <button onclick="changePaymentMethod('paysafecard')">PAYSAFECARD</button>
+        </div>
+
+        <div class="container">
+
+            <section charge-method="voucher" class="active">
+
+                <div class="type">
+                    <h4>ACTIVE CHARGE TYPE</h4>
+                    <h3>VOUCHER</h3>
+                </div>
+
+                <label for="nickName">NICKNAME</label>
+                <input type="text" name="nickName" id="nickName" placeholder="Input here your in game name." required>
+
+                <label for="voucher"></label>
+                <input type="text" name="voucher" id="voucher" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+                <input type="submit" value="USE">
+            </section>
+
+            <section charge-method="paysafecard">
+
+                <input type="submit" value="CHARGE">
+            </section>
+
+            <section charge-method="visa">
+
+                <input type="submit" value="CHARGE">
+            </section>
+
+            <section charge-method="paypal">
+
+                <input type="submit" value="CHARGE">
+            </section>
+
+            <section charge-method="sms">
+
+                <input type="submit" value="CHARGE">
+            </section>
+        </div>
+
+
+    </form>
+</body>
+</html>

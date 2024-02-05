@@ -203,7 +203,7 @@ nav .list h5.wallet:hover::after{
 }
 
 .container{
-    margin: 100px 0 80px 0;
+    margin: 100px 0 0 0;
 }
 
 .container .statistics{
@@ -215,18 +215,69 @@ nav .list h5.wallet:hover::after{
     position: absolute;
     left: 3rem;
 
+    color: white;
+
+    text-align: center;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.container .statistics .server .item{
+.container .statistics .server .list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
     justify-content: center;
     align-items: center;
+
+    max-width: 700px;
+}
+.container .statistics .server .list .item{
+    margin: 0.5rem 1rem;
+    padding: 1rem;
+
+    width: 150px;
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border-radius: 8px;
+    box-shadow: 0 0 10px #c2ff97;
+
+    cursor: default;
+}
+
+.container .statistics .server .list .item::after{
+    content: '';
+    display: block;
+
+    margin: 0.5rem 0 0 0;
+
+    top: 1rem;
+    left: 0;
+
+    height: 4px;
+    width: 100%;
+
+    border-radius: 2px;
+    background: linear-gradient(to right, #c2ff97 var(--width, 0), rgba(203, 203, 203, 0.23) var(--width, 0));
+
+    transition: width 400ms;
+}
+
+.container .statistics .server .list .item h4{
+    margin: 0.5rem 0 0.25rem 0;
+}
+
+.container .statistics .server .list .item h5{
+    color: #c2ff97;
+    margin: 0;
 }
 
 .container .statistics .account{
@@ -383,5 +434,54 @@ nav .list h5.wallet:hover::after{
 
 .container .statistics .account .history .list .info h5{
     color: #4f4f4f;
+    margin: 0;
+}
+
+.tooltip{
+    position: absolute;
+
+    margin: 0;
+
+    width: 150px;
+
+    color: white;
+    background: #4f4f4f;
+
+    font-family: Roboto, sans-serif;
+    font-size: medium;
+
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.application{
+    position: relative;
+
+    margin-top: 40rem;
+    height: 50rem;
+
+    box-shadow: 0 0 10px #000;
+
+    transition: scale 500ms;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+    padding: 0 0 1.5rem 0;
+}
+
+footer h2{
+    margin: 2rem 0 0 0;
+}
+
+footer h4{
     margin: 0;
 }
