@@ -437,24 +437,6 @@ nav .list h5.wallet:hover::after{
     margin: 0;
 }
 
-.tooltip{
-    position: absolute;
-
-    margin: 0;
-
-    width: 150px;
-
-    color: white;
-    background: #4f4f4f;
-
-    font-family: Roboto, sans-serif;
-    font-size: medium;
-
-    text-align: center;
-    padding: 1rem;
-    border-radius: 8px;
-}
-
 .application{
     position: relative;
 

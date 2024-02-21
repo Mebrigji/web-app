@@ -24,13 +24,14 @@
 
     <!-- Meta Tags Generated with https://metatags.io -->
 
-
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" th:href="@{/styles/loader.css}">
+    <link rel="stylesheet" th:href="@{/styles/loader.css}" preload>
     <link rel="stylesheet" th:href="@{/styles/page/main.css}">
+
+    <link rel="stylesheet" th:href="@{/styles/tooltip.css}">
 
     <link rel="shortcut icon" th:href="@{/assets/logo.png}" type="image/png">
 
@@ -40,9 +41,6 @@
             document.querySelector(".root").style.display = 'block';
         })
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -278,7 +276,7 @@
 
             const id = setInterval(() => {
                 if(animated >= percentage) clearInterval(id)
-                item.style.setProperty('--width', (animated+=increaseFoot) + '%')
+                item.style.setProperty('--width', Math.min(animated+=increaseFoot, target) + '%')
             }, 5)
         })
 

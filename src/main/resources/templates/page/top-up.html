@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" th:href="@{/styles/page/top-up.css}">
+    <link rel="stylesheet" th:href="@{/styles/tooltip.css}">
 </head>
 <body>
     <form action="charge" method="post">
@@ -24,10 +25,10 @@
         <div class="methods">
             <h4>CHOOSE YOUR PAYMENT</h4>
             <h3>METHOD</h3>
-            <button><img th:src="@{/assets/payments/paypal.png}" alt="paypal"></button>
-            <button><img th:src="@{/assets/payments/visa.png}" alt="paypal"></button>
-            <button><img th:src="@{/assets/payments/psc.png}" alt="paypal"></button>
-            <button type="button" onclick="changePaymentMethod('sms')"><i class="fas fa-sms"></i> SMS</button>
+            <button type="button"><img th:src="@{/assets/payments/paypal.png}" alt="paypal"></button>
+            <button type="button"><img th:src="@{/assets/payments/visa.png}" alt="paypal"></button>
+            <button type="button" Tooltip="<span style='color: crimson'>This payment method is currently disabled. Please check it later.</span>" class="disabled"><img th:src="@{/assets/payments/psc.png}" alt="paypal"></button>
+            <button type="button"><i class="fas fa-sms"></i> SMS</button>
         </div>
 
         <div class="container">
@@ -38,44 +39,60 @@
             </div>
 
             <input oninput="update(this)" type="range" name="value" min="5" value="5" max="250">
-            <input oninput="update(this)" type="number" min="5" value="5" max="250">
+            <span id="value">5€</span>
 
-            <div>
-                <label for="nickName">NICKNAME</label>
-                <input type="text" name="nickName" id="nickName" placeholder="Type here your name." required minlength="2" maxlength="32">
+            <h5 Tooltip="You can only buy our server value which can't be withdraw. On every <span style='color: gold'>1€</span> you gain <span style='color: gold'>1 AsterCoin.</span>">BEFORE YOU BUY SOMETHING</h5>
+
+            <div class="gift">
+                <h4>Want to give a gift to another player?</h4>
+
+                <label for="notification">
+                    Should be there notification to receiver after bought?
+                    <input type="checkbox" name="notification" id="notification">
+                </label>
+                
+                <label for="receiver">RECEIVER NAME</label>
+                <input type="text" name="receiver" id="receiver">
             </div>
         </div>
 
     </form>
 
     <script>
-        const rangeElement = document.querySelector(".container input[type=range]")
-        const integerElement = document.querySelector(".container input[type=number]")
+        const valueElement = document.querySelector(".container #value")
 
         function update(element){
-            let value = element.value
-            if(value > 250) {
-                updateBoth(250)
-            } else if(value < 5) {
-                updateBoth(5)
-            } else {
-                if(element === rangeElement) integerElement.value = value
-                else rangeElement.value = value
-            }
+            let value = element.value;
+            if(value > 250) value = 250
+            else if(value < 5) value = 5
+
+            valueElement.innerHTML = value + '€'
         }
 
-        function updateBoth(value){
-            integerElement.value = value
-            rangeElement.value = value
-        }
+        const tooltipMap = new Map()
 
-        const sections = document.querySelectorAll(".container section")
-        function changePaymentMethod(type){
-            sections.forEach(element => {
-                element.classList.remove("active")
-                const provideType = element.getAttribute("charge-method")
-                if(provideType === type) element.classList.add("active")
+        document.querySelectorAll("*[Tooltip]").forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                activeTooltip(element)
             })
+            element.addEventListener('mouseleave', () => {
+                disableTooltip(element)
+            })
+        })
+
+        function activeTooltip(element){
+            if(!element.hasAttribute("Tooltip")) return
+            const tooltip = document.createElement("h4")
+            tooltip.classList.add("tooltip")
+            tooltip.innerHTML = element.getAttribute("Tooltip")
+            element.appendChild(tooltip)
+            tooltipMap.set(element, tooltip)
+        }
+
+        function disableTooltip(element){
+            if(!element.hasAttribute("Tooltip")) return
+            element.removeChild(tooltipMap.get(element))
+            tooltipMap.delete(element)
         }
     </script>
 </body>

@@ -84,31 +84,35 @@ form{
 
     width: 100%;
 
+    top: 6rem;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 
     color: white;
 
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: center;
 }
 
 form .container{
     position: absolute;
 
     left: 50%;
-    top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 
     display: flex;
     flex-direction: column;
 
     align-items: center;
     justify-content: center;
+}
+
+form .container #value{
+    font-size: large;
+    font-weight: bold;
+    color: #c2ff97;
 }
 
 form .container .title h3{
@@ -119,6 +123,11 @@ form .container .title h3{
 form .container .title h4{
     color: #c2ff97;
     margin: 0 0 0.25rem 0;
+}
+
+form .container h5{
+    cursor: help;
+    border-bottom: 1px solid;
 }
 
 form .container label{
@@ -144,7 +153,8 @@ form input[type=text]::placeholder{
 
 form .voucher{
     position: absolute;
-    top: -6rem;
+
+    top: 6rem;
     right: 6rem;
 
     display: flex;
@@ -205,11 +215,13 @@ form .voucher button:hover::after{
 
 form .methods{
     position: absolute;
+
+    top: 6rem;
     left: 6rem;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: start;
 
 }
@@ -241,12 +253,21 @@ form .methods button{
     cursor: pointer;
 }
 
+form .methods button.disabled{
+    border-left: 2px solid crimson;
+    cursor: default;
+}
+
 form .methods button i{
     font-size: x-large;
 }
 
 form .methods button img{
     width: 128px;
+}
+
+form .methods button.disabled::after{
+    all: unset;
 }
 
 form .methods button::after{

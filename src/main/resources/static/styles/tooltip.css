@@ -1,0 +1,17 @@
+.tooltip{
+    position: absolute;
+
+    margin: 0;
+
+    width: 150px;
+
+    color: white !important;
+    background: #2a2a2a;
+
+    font-family: Roboto, sans-serif;
+    font-size: medium;
+
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+}
